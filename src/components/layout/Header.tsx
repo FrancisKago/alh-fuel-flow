@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface HeaderProps {
   userRole: 'chauffeur' | 'pompiste' | 'superviseur' | 'direction' | 'comptabilite' | 'admin';
@@ -26,6 +27,12 @@ const roleColors = {
 } as const;
 
 export const Header: React.FC<HeaderProps> = ({ userRole }) => {
+  const { profile, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-16 bg-card border-b shadow-sm">
       <div className="flex items-center justify-between h-full px-4">
@@ -46,11 +53,26 @@ export const Header: React.FC<HeaderProps> = ({ userRole }) => {
             {roleLabels[userRole]}
           </Badge>
           
+          <div className="hidden sm:block text-right text-sm">
+            <p className="font-medium">{profile?.full_name || profile?.email}</p>
+            <p className="text-xs text-muted-foreground">{profile?.email}</p>
+          </div>
+          
           <Avatar className="h-8 w-8">
             <AvatarFallback className="bg-primary text-primary-foreground text-sm">
-              {roleLabels[userRole].charAt(0)}
+              {profile?.full_name?.charAt(0) || profile?.email.charAt(0) || 'U'}
             </AvatarFallback>
           </Avatar>
+          
+          {/* Bouton déconnexion */}
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={handleSignOut}
+            className="hidden sm:inline-flex"
+          >
+            Déconnexion
+          </Button>
           
           {/* Bouton menu mobile */}
           <Button variant="ghost" size="icon" className="md:hidden">
