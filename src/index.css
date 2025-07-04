@@ -2,39 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ALH Fuel Flow Design System - Couleurs industrielles optimisées pour terrain et bureau */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 98%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Bleu industriel principal - couleur métier */
+    --primary: 214 100% 25%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 214 100% 35%;
+    --primary-dark: 214 100% 15%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Orange sécurité pour alertes et actions importantes */
+    --secondary: 25 100% 50%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-light: 25 100% 60%;
+    --secondary-dark: 25 100% 40%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Gris terrain pour éléments secondaires */
+    --muted: 220 10% 95%;
+    --muted-foreground: 220 10% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Vert validation pour statuts approuvés */
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 98%;
+    --accent-light: 142 76% 46%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Rouge pour alertes critiques */
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 214 100% 25%;
+
+    /* Variables personnalisées ALH */
+    --fuel-warning: 35 100% 50%;
+    --fuel-critical: 0 84% 55%;
+    --fuel-ok: 142 76% 36%;
+    --terrain-bg: 220 10% 96%;
+    --bureau-bg: 0 0% 98%;
+    
+    /* Gradients pour dashboards */
+    --gradient-primary: linear-gradient(135deg, hsl(214 100% 25%), hsl(214 100% 35%));
+    --gradient-secondary: linear-gradient(135deg, hsl(25 100% 50%), hsl(25 100% 60%));
+    --gradient-terrain: linear-gradient(180deg, hsl(220 10% 96%), hsl(220 10% 94%));
+    
+    /* Ombres pour profondeur */
+    --shadow-card: 0 4px 6px -1px hsl(220 10% 40% / 0.1);
+    --shadow-elevated: 0 10px 15px -3px hsl(220 10% 40% / 0.1);
+    --shadow-terrain: 0 2px 8px hsl(214 100% 25% / 0.15);
 
     --radius: 0.5rem;
 
