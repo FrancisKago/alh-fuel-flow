@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 interface NavigationProps {
@@ -56,15 +57,16 @@ export const Navigation: React.FC<NavigationProps> = ({ userRole }) => {
       <nav className="fixed bottom-0 left-0 right-0 z-40 bg-card border-t shadow-elevated">
         <div className="flex justify-around py-2">
           {items.map((item) => (
-            <Button
-              key={item.id}
-              variant="ghost"
-              size="sm"
-              className="flex-1 flex-col h-16 gap-1 text-xs"
-            >
-              <span className="text-xl">{item.icon}</span>
-              <span className="leading-none">{item.label}</span>
-            </Button>
+            <Link key={item.id} to={item.path} className="flex-1">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="w-full flex-col h-16 gap-1 text-xs"
+              >
+                <span className="text-xl">{item.icon}</span>
+                <span className="leading-none">{item.label}</span>
+              </Button>
+            </Link>
           ))}
         </div>
       </nav>
@@ -76,14 +78,15 @@ export const Navigation: React.FC<NavigationProps> = ({ userRole }) => {
     <nav className="p-4">
       <div className="space-y-2">
         {items.map((item) => (
-          <Button
-            key={item.id}
-            variant="ghost"
-            className="w-full justify-start gap-3 h-12"
-          >
-            <span className="text-lg">{item.icon}</span>
-            <span>{item.label}</span>
-          </Button>
+          <Link key={item.id} to={item.path}>
+            <Button
+              variant="ghost"
+              className="w-full justify-start gap-3 h-12"
+            >
+              <span className="text-lg">{item.icon}</span>
+              <span>{item.label}</span>
+            </Button>
+          </Link>
         ))}
       </div>
     </nav>
