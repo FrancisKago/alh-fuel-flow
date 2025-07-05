@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import Dashboard from './Dashboard';
 
+type UserRole = 'chauffeur' | 'pompiste' | 'superviseur' | 'direction' | 'comptabilite' | 'admin';
+
 const Index = () => {
   const { user, profile, loading } = useAuth();
   const navigate = useNavigate();
@@ -30,7 +32,7 @@ const Index = () => {
     return null;
   }
 
-  return <Dashboard userRole={profile.role} />;
+  return <Dashboard userRole={profile.role as UserRole} />;
 };
 
 export default Index;
